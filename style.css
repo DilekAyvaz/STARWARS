@@ -1,0 +1,189 @@
+/* Genel stil */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(assets/yodaa.jpg); /* Arkaplan Resmi */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+/* Arka plan hareket efekti */
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+body {
+  animation: moveBackground 60s linear infinite;
+}
+
+/* Başlık için stil */
+h1.starwars-title {
+  font-family: "Star Wars", sans-serif;
+  font-size: 5rem;
+  color: #d4f375; /* Altın Sarısı */
+  text-align: center;
+  margin-left: auto;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.7),
+    0 0 30px rgba(255, 255, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.7);
+  animation: moveTitle 2s ease-in-out infinite;
+  margin-top: 1vh;
+  letter-spacing: 8px;
+}
+
+/* Başlık animasyonu */
+@keyframes moveTitle {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Yoda için animasyon */
+.yodaa {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: yodaMove 4s infinite;
+  z-index: 1; /* Arka planın önünde olması için */
+}
+
+@keyframes yodaMove {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-50%) rotate(15deg);
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+/* Işık parıltısı efekti */
+h1::after {
+  content: "";
+  position: absolute;
+  top: 350%;
+  right: 10%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(180, 254, 140, 0.6);
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(255, 255, 0, 0.6);
+  animation: glowEffect 1.5s infinite alternate;
+}
+
+/* Parıltı animasyonu */
+@keyframes glowEffect {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+/* Card Container */
+.container {
+  position: relative;
+  z-index: 2;
+  padding-top: 50px;
+}
+
+/* Kartlar */
+.card {
+  margin: 10px;
+  transition: transform 0.3s ease;
+  width: 100%;
+  height: 250px;
+}
+.card-img-top {
+  height: 200px; /* İstediğiniz yüksekliği ayarlayabilirsiniz */
+  object-fit: contain; /* Resmi kırparak sığdırır */
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card-body {
+  background-color: rgba(206, 246, 126, 0.7);
+  color: white;
+}
+
+/* Homeworld filtresi */
+.home-filter-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.form-check {
+  font-size: 22px;
+  margin-right: 2px;
+  color: #d4f375;
+}
+
+.form-check-input {
+  margin-right: 5px;
+}
+
+/* Button stili */
+.renderBtn {
+  background-color: #c4ec8b;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.renderBtn:hover {
+  background-color: #6fff65;
+}
+
+/* Mobil ekranlar için küçültülmüş stil */
+@media (max-width: 576px) {
+  .form-check {
+    font-size: 10px; /* Daha küçük font */
+    margin-right: 5px;
+  }
+}
+
+/* Tablet: 577px - 991px arası */
+@media (min-width: 577px) and (max-width: 991px) {
+  .form-check {
+    font-size: 13px;
+    margin-right: 6px;
+  }
+}

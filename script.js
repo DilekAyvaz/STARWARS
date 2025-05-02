@@ -95,25 +95,20 @@ const dataSet = [
     pic: "https://vignette.wikia.nocookie.net/starwars/images/7/7f/Jabba_SWSB.png",
     homeworld: "tatooine",
   },
+ 
   {
-    id: 18,
-    name: "Wedge Antilles",
-    pic: "https://vignette.wikia.nocookie.net/starwars/images/6/60/WedgeHelmetless-ROTJHD.jpg",
-    homeworld: "corellia",
-  },
-  {
-    id: 19,
+    id: 17,
     name: "Jek Tono Porkins",
     pic: "https://vignette.wikia.nocookie.net/starwars/images/e/eb/JekPorkins-DB.png",
     homeworld: "bestine",
   },
   {
-    id: 20,
+    id: 18,
     name: "Yoda",
     pic: "https://vignette.wikia.nocookie.net/starwars/images/d/d6/Yoda_SWSB.png",
   },
   {
-    id: 21,
+    id: 19,
     name: "Palpatine",
     pic: "https://vignette.wikia.nocookie.net/starwars/images/d/d8/Emperor_Sidious.png",
     homeworld: "naboo",
@@ -141,6 +136,8 @@ const renderCharacters = (characters) => {
   row.innerHTML = characters.map(createCharacterCard).join("");
 };
 const toggleCharacters = () => {
+const isFittered = document.querySelector(".form-check-input:checked");
+
   if (!row.innerHTML) {
     renderCharacters(dataSet);
     renderBtn.innerText = "Hide Characters";
@@ -151,6 +148,7 @@ const toggleCharacters = () => {
   document.querySelectorAll(".form-check-input").forEach((input) => {
     input.checked = false;
   });
+  renderBtn.innerHTML = row.innerHTML ? "Hide Characters" : "Show Characters";
 };
 
 const newArray = (arr, key) => arr.map((item) => item[key]);
@@ -178,6 +176,10 @@ const filterCharactersByHomeworld = (homeworld) => {
     (character.homeworld ?? "other").toLowerCase()=== homeworld.toLowerCase()
   );
   renderCharacters(filteredCharacters);
+
+  if (filteredCharacters.length > 0) {
+    renderBtn.innerText = "Hide Characters";
+  }
 };
 const addHomeworldFilterListeners = () => {
   const checkInputs = document.querySelectorAll(".form-check-input");
