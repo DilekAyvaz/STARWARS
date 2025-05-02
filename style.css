@@ -14,7 +14,7 @@ body {
   height: 100vh;
   font-family: Arial, sans-serif;
   color: white;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* Arka plan hareket efekti */

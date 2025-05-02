@@ -120,17 +120,20 @@ const row = document.querySelector(".row");
 const homeworldsFilterContainer = document.querySelector(
   ".home-filter-container")
 
-const createCharacterCard = ({ name, pic, homeworld = "other" }) => {
-  return `
-   <div class="card" style="width: 18rem;">
-  <img src="${pic}" class="card-img-top" alt="${name}">
-  <div class="card-body">
-    <h5 class="card-title">${name}</h5>
-    <p class="card-text">${homeworld}</p>
-  </div>
-</div>
-  `;
-};
+  const createCharacterCard = ({ name, pic, homeworld = "other" }) => {
+    return `
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+          <img src="${pic}" class="card-img-top" alt="${name}">
+          <div class="card-body">
+            <h5 class="card-title">${name}</h5>
+            <p class="card-text">${homeworld}</p>
+          </div>
+        </div>
+      </div>
+    `;
+  };
+  
 
 const renderCharacters = (characters) => {
   row.innerHTML = characters.map(createCharacterCard).join("");
